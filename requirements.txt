@@ -1,0 +1,3 @@
+klvdata==0.0.3
+numpy==1.21.0
+opencv-python==4.5.2.54
