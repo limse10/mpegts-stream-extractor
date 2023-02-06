@@ -37,8 +37,9 @@ def reader(f,q):
             else:
                 num_len_bytes = ord(length_key)-128
                 length, buffer = read_into_buffer(f,num_len_bytes,buffer)
+                length = int.from_bytes(length, "big")
 
-            _, buffer = read_into_buffer(f,ord(length),buffer) # reads value packet and stores into buffer
+            _, buffer = read_into_buffer(f,length,buffer) # reads value packet and stores into buffer
             q.put(buffer)
             buffer=b''
                     
